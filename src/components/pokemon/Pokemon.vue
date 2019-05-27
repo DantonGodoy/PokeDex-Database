@@ -36,12 +36,17 @@ export default {
   created() {
 
     this.fetchPokemons();
-    console.warn(`Componente Pokémon criado com sucesso.`);
+    console.warn(`Componente Pokemon criado com sucesso.`);
   },
 
   computed: {
 
+    /** If user input is empty, return the original Pokémon´s list.
+     * Every user input is indexed in an array of letters and treated to be part of the RegExp rule.
+     * Returns a new array based on the new instanciated RegExp.
+     */
     filteredPokemon () {
+
       if (this.searchText) {
 
         let splittedSearch = this.searchText.split('').join('.*')
@@ -56,7 +61,10 @@ export default {
   },
 
   methods: {
-
+    /**
+     * API Request using Axios, the endpoint get the full list with all of the Pokémons.
+     * To get a smaller list and activate the pagination buttons, try setting a smaller number.
+     */
     fetchPokemons (url = 'http://pokeapi.salestock.net/api/v2/pokemon/?limit=964') {
       Axios.get(url)
         .then(({ data }) => this.api = data)
