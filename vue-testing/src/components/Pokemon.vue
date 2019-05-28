@@ -5,14 +5,10 @@
     <input type="search" class="filter-field" v-model="searchText" placeholder="Encontre seu Pokémon favorito aqui">
 
     <ul class="pokemons__list">
-
       <li class="pokemons__items pkm" v-for="pokemon in filteredPokemon">
-
         <p class="pkm__name" v-text="pokemon.name"><span></span></p>
-        <a class="pkm__reference" target="_blank" :href="pokemon.url"></a>
-        
+        <a class="pkm__reference" href="" v-text="pokemon.url"></a>
       </li>
-      
     </ul>
 
     <button class="button button--prev" v-if="api.previous" @click="prevPage"></button>
@@ -67,7 +63,7 @@ export default {
   methods: {
     /**
      * API Request using Axios, the endpoint get the full list with all of the Pokémons.
-     * To get a smaller list and activate the pagination buttons, try setting a smaller limit number, for exmaple 500.
+     * To get a smaller list and activate the pagination buttons, try setting a smaller number.
      */
     fetchPokemons (url = 'http://pokeapi.salestock.net/api/v2/pokemon/?limit=964') {
       Axios.get(url)
@@ -127,6 +123,7 @@ export default {
       display: inline-block;
       width: 0;
       height: 0;
+      float: right;
       margin-top: 40px;
       border: 5px solid transparent;
       border-top-color: $black;
@@ -144,20 +141,7 @@ export default {
         font-weight: 600;
       }
 
-      &__reference {
-        margin-left: auto;
-        margin-right: 16px;
-
-        &::after {
-          content: "";
-          display:inline-block;
-          width: 30px;
-          height: 30px;
-          background-image: url('./../../assets/images/pokeball_icon-sm.png');
-          background-size: cover;
-          background-repeat: no-repeat;
-        }
-      }
+      &__reference {}
     }
 
     @keyframes bounce {
@@ -232,13 +216,5 @@ export default {
     border: 2px solid $red;
   }
 }
-
-.picture-fade-enter, .picture-fade-leave-active {
-    opacity: 0;
-  }
-
-  .picture-fade-enter-active, .picture-fade-leave-active {
-    transition: opacity .5s;
-  }
 
 </style>
