@@ -35,11 +35,16 @@ export default {
 
 <style lang="scss">
 
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
+// @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
 @import './assets/scss/style';
 
-body * {
-  font-family: "Titillium Web", sans-serif;
+body {
+  background: rgb(255,203,5);
+  background: radial-gradient(circle, rgba(255,203,5,1) 0%, rgba(0,58,112,1) 100%);
+
+  * {
+    font-family: "Titillium Web", sans-serif;
+  }
 }
 
 .container {
