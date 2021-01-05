@@ -18,7 +18,7 @@
     "sourceMap": false
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "vue": "^2.5.11"
   },
   "browserslist": [
